@@ -84,6 +84,25 @@ public class DishBean implements Serializable{
         }
     }
     
+    public  int getIDmax(){
+         connect();
+        int idmax = 0;
+        String sql = "SELECT MAX(ID) FROM Dish ";
+        try{
+            PreparedStatement ps = this.cn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+              idmax= rs.getInt(1);
+            }
+            cn.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        
+        return idmax+1;
+    }
+    
     public ArrayList<DishBean> searchDish(String name){
         connect();
         ArrayList<DishBean> list = new ArrayList<>();
@@ -137,5 +156,62 @@ public class DishBean implements Serializable{
 //        } catch (Exception ex) {
 //            ex.printStackTrace();
 //        }
+    }
+    
+    public void AddDish(){
+        connect ();
+        String sql = "INSERT INTO Dish VALUES (?,?,?,?,?)";
+        try{
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ps.setInt(1, this.getID());
+            ps.setString(2, this.getType());
+            ps.setString(3, this.getName());
+            ps.setString(4, this.getDiscrip());
+            ps.setFloat(5, this.getPrice());
+            ps.executeUpdate();
+            cn.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+    }
+    
+    public void DeleteDish(){
+        connect();
+        String sql = "DELETE FROM Dish WHERE ID=?";
+        try{
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ps.setInt(1, this.getID());
+            
+            ps.executeUpdate();
+            cn.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public ArrayList<DishBean> searchDishEntieName(String name) {
+         connect();
+        ArrayList<DishBean> list = new ArrayList<>();
+        String sql = "SELECT * FROM Dish WHERE name=?";
+        try{
+            PreparedStatement ps = this.cn.prepareStatement(sql);
+            ps.setString(1, name);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                DishBean d = new DishBean();
+                d.setID(rs.getInt("ID"));
+                d.setType(rs.getString("type"));
+                d.setName(rs.getString("name"));
+                d.setDiscrip(rs.getString("discrip"));
+                d.setPrice(rs.getFloat("price"));
+                list.add(d);
+            }
+            cn.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        return list;
     }
 }

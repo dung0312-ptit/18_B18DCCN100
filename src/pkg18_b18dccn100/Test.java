@@ -5,7 +5,7 @@
  */
 package pkg18_b18dccn100;
 
-import View.MenuCtrFrm;
+import View.DishCtrFrm;
 
 /**
  *
@@ -13,6 +13,6 @@ import View.MenuCtrFrm;
  */
 public class Test {
     public static void main(String[] args) {
-        new MenuCtrFrm();
+        new DishCtrFrm();
     }
 }

@@ -41,7 +41,8 @@ public class DishListFrm extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDishList = new javax.swing.JTable();
-        btnChoose = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,10 +59,17 @@ public class DishListFrm extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblDishList);
 
-        btnChoose.setText("Choose");
-        btnChoose.addActionListener(new java.awt.event.ActionListener() {
+        btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChooseActionPerformed(evt);
+                btnEditActionPerformed(evt);
+            }
+        });
+
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -74,8 +82,10 @@ public class DishListFrm extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(391, 391, 391)
-                .addComponent(btnChoose)
+                .addGap(302, 302, 302)
+                .addComponent(btnEdit)
+                .addGap(156, 156, 156)
+                .addComponent(btnDelete)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -84,14 +94,16 @@ public class DishListFrm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(btnChoose)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEdit)
+                    .addComponent(btnDelete))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseActionPerformed
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
         int row = tblDishList.getSelectedRow();
         String ID = tblDishList.getValueAt(row, 0).toString().trim();
@@ -105,7 +117,23 @@ public class DishListFrm extends javax.swing.JFrame {
         DishBean dish = new DishBean(IDn, type, name, discrip, pricen);
         new editDishFrm(dish);
         this.setVisible(false);
-    }//GEN-LAST:event_btnChooseActionPerformed
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+          int row = tblDishList.getSelectedRow();
+        String ID = tblDishList.getValueAt(row, 0).toString().trim();
+        String type = tblDishList.getValueAt(row, 1).toString().trim();
+        String name = tblDishList.getValueAt(row, 2).toString().trim();
+        String discrip = tblDishList.getValueAt(row, 3).toString().trim();
+        String price = tblDishList.getValueAt(row, 4).toString().trim();
+        
+        int IDn = Integer.parseInt(ID);
+        float pricen = Float.parseFloat(price);
+        DishBean dish = new DishBean(IDn, type, name, discrip, pricen);
+        new DeleteDishFrm(dish);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void showList() {
         model.setRowCount(0);
@@ -119,7 +147,8 @@ public class DishListFrm extends javax.swing.JFrame {
 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnChoose;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDishList;
     // End of variables declaration//GEN-END:variables

@@ -9,12 +9,12 @@ package View;
  *
  * @author ASUS
  */
-public class MenuCtrFrm extends javax.swing.JFrame {
+public class DishCtrFrm extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuCtrFrm
      */
-    public MenuCtrFrm() {
+    public DishCtrFrm() {
         initComponents();
         this.setVisible((true));
         setLocationRelativeTo(null);
@@ -33,22 +33,24 @@ public class MenuCtrFrm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Menu Quan Ly Mon An");
 
-        btnAdd.setText("them");
+        btnAdd.setText("Add new Dish");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
-        btnEdit.setText("sua");
+        btnEdit.setText("EditDelete Dish");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
-
-        btnDelete.setText("xoa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,15 +59,13 @@ public class MenuCtrFrm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(141, 141, 141)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(btnAdd)
-                .addGap(74, 74, 74)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEdit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                .addComponent(btnDelete)
-                .addGap(40, 40, 40))
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,8 +75,7 @@ public class MenuCtrFrm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEdit)
-                    .addComponent(btnAdd)
-                    .addComponent(btnDelete))
+                    .addComponent(btnAdd))
                 .addGap(54, 54, 54))
         );
 
@@ -88,6 +87,11 @@ public class MenuCtrFrm extends javax.swing.JFrame {
         SearchDishFrm sdf = new SearchDishFrm();
     }//GEN-LAST:event_btnEditActionPerformed
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        new AddDishFrm();
+    }//GEN-LAST:event_btnAddActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -95,7 +99,6 @@ public class MenuCtrFrm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

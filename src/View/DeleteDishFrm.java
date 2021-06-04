@@ -6,24 +6,21 @@
 package View;
 
 import Bean.DishBean;
-import java.util.ArrayList;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
  * @author ASUS
  */
-public class editDishFrm extends javax.swing.JFrame {
+public class DeleteDishFrm extends javax.swing.JFrame {
 
     /**
-     * Creates new form editDishFrm
+     * Creates new form DeleteDishFrm
      */
-    private DishBean dish;
-    public editDishFrm(DishBean dish) {
+        private DishBean dish;
+    public DeleteDishFrm(DishBean dish) {
         initComponents();
-        this.dish = dish;
+         this.dish = dish;
         settext();
         setVisible(true);
         setLocationRelativeTo(null);
@@ -39,11 +36,11 @@ public class editDishFrm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        btnCf = new javax.swing.JButton();
-        btnReset = new javax.swing.JButton();
+        txtDiscrip = new javax.swing.JTextField();
+        txtPrice = new javax.swing.JTextField();
+        btnDelete = new javax.swing.JButton();
+        txtType = new javax.swing.JTextField();
+        btnCancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -51,33 +48,29 @@ public class editDishFrm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        txtDiscrip = new javax.swing.JTextField();
-        txtPrice = new javax.swing.JTextField();
-        txtType = new javax.swing.JTextField();
-        btnCancel = new javax.swing.JButton();
-
-        jCheckBox1.setText("jCheckBox1");
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnCf.setText("xác nhận");
-        btnCf.addActionListener(new java.awt.event.ActionListener() {
+        txtDiscrip.setEditable(false);
+        txtDiscrip.setText("jTextField3");
+
+        txtPrice.setEditable(false);
+        txtPrice.setText("jTextField3");
+
+        btnDelete.setText("delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCfActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
-        btnReset.setText("reset");
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
+        txtType.setEditable(false);
+        txtType.setText("jTextField1");
+
+        btnCancel.setText("cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
@@ -94,51 +87,35 @@ public class editDishFrm extends javax.swing.JFrame {
 
         jLabel5.setText("price");
 
+        txtName.setEditable(false);
         txtName.setText("jTextField3");
-
-        txtDiscrip.setText("jTextField3");
-
-        txtPrice.setText("jTextField3");
-
-        txtType.setText("jTextField1");
-
-        btnCancel.setText("Cancel");
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(84, 84, 84)
+                .addComponent(btnDelete)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addComponent(btnCancel)
+                .addGap(69, 69, 69))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(btnCf)
-                        .addGap(60, 60, 60)
-                        .addComponent(btnReset)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                        .addComponent(btnCancel)
-                        .addGap(15, 15, 15))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName)
-                            .addComponent(txtDiscrip)
-                            .addComponent(txtPrice)
-                            .addComponent(txtID)
-                            .addComponent(txtType))))
-                .addGap(28, 28, 28))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3))
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtName)
+                    .addComponent(txtDiscrip)
+                    .addComponent(txtPrice)
+                    .addComponent(txtID)
+                    .addComponent(txtType))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,10 +140,9 @@ public class editDishFrm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCf)
-                    .addComponent(btnReset)
+                    .addComponent(btnDelete)
                     .addComponent(btnCancel))
                 .addGap(28, 28, 28))
         );
@@ -174,7 +150,7 @@ public class editDishFrm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCfActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         String IDtxt = txtID.getText();
         int ID = Integer.parseInt(IDtxt);
@@ -182,38 +158,13 @@ public class editDishFrm extends javax.swing.JFrame {
         String name = txtName.getText();
         String discrip = txtDiscrip.getText();
         String pricetxt = txtPrice.getText().trim();
-        
-           boolean isOK = true;
-        
-        if(type.length()==0||name.length()==0||pricetxt.length()==0){
-            JOptionPane.showMessageDialog(this, "khong duoc de trong type,name,price");
-            isOK=false;
-        }else if(!pricetxt.matches("\\d+[.]\\d+") && !pricetxt.matches("\\d+")){
-                JOptionPane.showMessageDialog(this, "gia phai la so");
-                isOK=false;
-        }else if(!name.equals(dish.getName())){
-             DishBean d = new DishBean();
-             ArrayList<DishBean> list = new ArrayList<>();
-             list = d.searchDishEntieName(name);
-             if(list.size()!=0){
-                 JOptionPane.showMessageDialog(this,"ten mon da ton tai");
-                 isOK=false;
-                         
-             }
-        }      
-        if(isOK){
-        float price = Float.parseFloat(pricetxt);   
-        DishBean dish = new DishBean(ID,type,name,discrip,price);
-        dish.editDish();
-        JOptionPane.showMessageDialog(this,"da thay doi");
-        this.setVisible(false);
-        }
-    }//GEN-LAST:event_btnCfActionPerformed
+        float price = Float.parseFloat(pricetxt);
 
-    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        // TODO add your handling code here:
-        settext();
-    }//GEN-LAST:event_btnResetActionPerformed
+        DishBean dish = new DishBean(ID,type,name,discrip,price);
+        dish.DeleteDish();
+        JOptionPane.showMessageDialog(this,"da xoa");
+        this.setVisible(false);
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
@@ -223,20 +174,16 @@ public class editDishFrm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnCf;
-    private javax.swing.JButton btnReset;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtDiscrip;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
