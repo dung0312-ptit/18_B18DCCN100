@@ -5,7 +5,8 @@
  */
 package pkg18_b18dccn100;
 
-import View.DishCtrFrm;
+import View.Login.LoginFrm;
+import View.UCManageDish.DishCtrFrm;
 
 /**
  *
@@ -13,6 +14,6 @@ import View.DishCtrFrm;
  */
 public class Test {
     public static void main(String[] args) {
-        new DishCtrFrm();
+        new LoginFrm();
     }
 }

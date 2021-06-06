@@ -3,28 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package View.UCManageDish;
 
 import Bean.DishBean;
+import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author ASUS
  */
-public class DeleteDishFrm extends javax.swing.JFrame {
+public class AddDishFrm extends javax.swing.JFrame {
 
     /**
-     * Creates new form DeleteDishFrm
+     * Creates new form AddDishFrm
      */
-        private DishBean dish;
-    public DeleteDishFrm(DishBean dish) {
+    public AddDishFrm() {
         initComponents();
-         this.dish = dish;
         settext();
         setVisible(true);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.getContentPane().setBackground(Color.pink);
     }
 
     /**
@@ -38,46 +38,38 @@ public class DeleteDishFrm extends javax.swing.JFrame {
 
         txtDiscrip = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
-        btnDelete = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         txtType = new javax.swing.JTextField();
-        btnCancel = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
+        btnReset = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
+        btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("thêm món");
 
-        txtDiscrip.setEditable(false);
         txtDiscrip.setText("jTextField3");
 
-        txtPrice.setEditable(false);
         txtPrice.setText("jTextField3");
 
-        btnDelete.setText("delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
-        txtType.setEditable(false);
         txtType.setText("jTextField1");
 
-        btnCancel.setText("cancel");
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+        btnReset.setText("reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
+                btnResetActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("ID:");
-
-        txtID.setEditable(false);
-        txtID.setText("jTextField1");
 
         jLabel2.setText("type:");
 
@@ -87,23 +79,22 @@ public class DeleteDishFrm extends javax.swing.JFrame {
 
         jLabel5.setText("price");
 
-        txtName.setEditable(false);
         txtName.setText("jTextField3");
+
+        btnCancel.setText("cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(btnDelete)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
-                .addComponent(btnCancel)
-                .addGap(69, 69, 69))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
@@ -113,18 +104,21 @@ public class DeleteDishFrm extends javax.swing.JFrame {
                     .addComponent(txtName)
                     .addComponent(txtDiscrip)
                     .addComponent(txtPrice)
-                    .addComponent(txtID)
                     .addComponent(txtType))
-                .addContainerGap())
+                .addGap(24, 24, 24))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(btnAdd)
+                .addGap(58, 58, 58)
+                .addComponent(btnReset)
+                .addGap(50, 50, 50)
+                .addComponent(btnCancel)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -140,31 +134,56 @@ public class DeleteDishFrm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDelete)
+                    .addComponent(btnReset)
+                    .addComponent(btnAdd)
                     .addComponent(btnCancel))
-                .addGap(28, 28, 28))
+                .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        String IDtxt = txtID.getText();
-        int ID = Integer.parseInt(IDtxt);
         String type = txtType.getText();
         String name = txtName.getText();
         String discrip = txtDiscrip.getText();
         String pricetxt = txtPrice.getText().trim();
+        boolean isOK = true;
+        
+        if(type.length()==0||name.length()==0||pricetxt.length()==0){
+            JOptionPane.showMessageDialog(this, "khong duoc de trong type,name,price");
+            isOK=false;
+        }else if(!pricetxt.matches("\\d+[.]\\d+") && !pricetxt.matches("\\d+")){
+                JOptionPane.showMessageDialog(this, "gia phai la so");
+                isOK=false;
+        }
+        
+        if(isOK){
+            
+        
         float price = Float.parseFloat(pricetxt);
-
-        DishBean dish = new DishBean(ID,type,name,discrip,price);
-        dish.DeleteDish();
-        JOptionPane.showMessageDialog(this,"da xoa");
+        DishBean d = new DishBean();
+        ArrayList<DishBean> list = new ArrayList<>();
+        list = d.searchDishEntieName(name);
+        if(list.size()==0){
+        int ID = d.getIDmax();
+        DishBean dish = new DishBean(ID, type, name, discrip, price);
+        dish.AddDish();
+        JOptionPane.showMessageDialog(this,"da them");
         this.setVisible(false);
-    }//GEN-LAST:event_btnDeleteActionPerformed
+        }else{
+            JOptionPane.showMessageDialog(this,"ten mon da ton tai");
+        }
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        settext();
+    }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
@@ -174,28 +193,25 @@ public class DeleteDishFrm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnReset;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtDiscrip;
-    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 
     private void settext() {
-        txtID.setText(dish.getID()+"");
-        txtType.setText(dish.getType());
-        txtName.setText(dish.getName());
-        txtDiscrip.setText(dish.getDiscrip());
-        txtPrice.setText(dish.getPrice()+"");
+        txtType.setText("");
+        txtName.setText("");
+        txtDiscrip.setText("");
+        txtPrice.setText("");
     }
 }

@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package View.UCManageDish;
 
 import Bean.DishBean;
+import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -24,6 +25,7 @@ public class SearchDishFrm extends javax.swing.JFrame {
         this.setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.getContentPane().setBackground(Color.pink);
     }
 
     /**
@@ -41,6 +43,7 @@ public class SearchDishFrm extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tìm món theo tên");
 
         jLabel1.setText("Hay Tim Di");
 

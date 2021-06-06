@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package View.UCManageDish;
 
 import Bean.DishBean;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -28,6 +29,7 @@ public class editDishFrm extends javax.swing.JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.getContentPane().setBackground(Color.pink);
     }
 
     /**
@@ -66,6 +68,7 @@ public class editDishFrm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sửa thông tin món");
 
         btnCf.setText("xác nhận");
         btnCf.addActionListener(new java.awt.event.ActionListener() {
